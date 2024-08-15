@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-  <Navbar></Navbar>
+  {/* <Navbar></Navbar> */}
       <div className=''>
       <Outlet></Outlet>
       </div>

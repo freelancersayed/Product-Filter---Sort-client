@@ -4,6 +4,10 @@ import FilterOptions from "../../page/FilterOptions";
 import ProductCard from "../../page/ProductCard";
 import Pagination from "../../page/Pagination";
 import FilterCategory from "../../page/FilterCategory";
+import FilterBrand from "../../page/FilterBrand";
+import FilterSearch from "../../page/FilterSearch";
+import FilterPrice from "../../page/FilterPrice";
+import PriceSrot from "../../page/PriceSrot";
 
 
 function Product() {
@@ -20,7 +24,7 @@ function Product() {
 
   useEffect(() => {
     fetchProducts();
-  }, [page, search, category, brand, minPrice, maxPrice, sort, order]);
+  }, [page, search, category, brand, minPrice, maxPrice, sort, order, ]);
 
   const fetchProducts = async () => {
     try {
@@ -34,6 +38,7 @@ function Product() {
                 maxPrice,
                 sort,
                 order,
+              
             },
         });
 
@@ -45,10 +50,19 @@ function Product() {
 };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Product Catalog</h1>
-      
-      <FilterOptions 
+    <div className="px-">
+
+      {/* <h1 className="text-3xl font-bold text-center mb-8">Product Catalog</h1> */}
+
+      <div className="w-full mx-auto mb-10 bg-[#f77912] py-6 fixed">
+        <FilterSearch setSearch={setSearch}></FilterSearch>
+        </div>
+        <div className="h-44"></div>
+      {/*main section  */}
+ <section className="max-w-[1280px] mx-auto ">
+         
+ <div className="lg:hidden">
+ <FilterOptions 
         setSearch={setSearch}
         setCategory={setCategory}
         setBrand={setBrand}
@@ -57,17 +71,25 @@ function Product() {
         setSort={setSort}
         setOrder={setOrder}
       />
+ </div>
     
-<section className="grid grid-cols-5 gap-2">
+<section className=" container flex gap-2">
 
     {/* sidbar */}
-    <div className="pl-2">
-    <FilterCategory setCategory={setCategory} setBrand={setBrand}></FilterCategory>
+    <div className="w-52">
+    {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
+    <FilterCategory setCategory={setCategory}></FilterCategory>
+    {category=== "Smartphones" && <FilterBrand setBrand={setBrand}></FilterBrand>}
+    <FilterPrice setMinPrice={setMinPrice} setMaxPrice={setMaxPrice}></FilterPrice>
     </div>
 
 
-      <div className=" col-span-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="w-full">
+        <div className=" h-20 flex justify-end border-b mb-2">
+        <PriceSrot setSort={setSort}></PriceSrot>
+        </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
@@ -80,6 +102,7 @@ function Product() {
       />
       </div>
 </section>
+ </section>
 
     </div>
   );
