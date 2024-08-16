@@ -4,7 +4,7 @@ import { MdDateRange } from 'react-icons/md';
 const SortRatingDate = ({setSort}) => {
     return (
         <div>
-                  <select 
+                  {/* <select 
           className="select select-bordered w-full"
           onChange={(e) => setSort(e.target.value)}
         >
@@ -12,7 +12,7 @@ const SortRatingDate = ({setSort}) => {
           <option value="price">Price</option>
           <option value="">Hight</option>
           <option value="date_time">Date</option>
-        </select>
+        </select> */}
 
         <form className='rating my-5' onChange={(e) => setSort(e.target.value)}>
         <input value="rating" type="radio" name="rating" className="mask mask-star-2 bg-orange-400" />

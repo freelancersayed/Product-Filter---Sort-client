@@ -25,6 +25,7 @@ function Product() {
   const [sort, setSort] = useState("rating");
   const [order, setOrder] = useState("asc");
 
+
   useEffect(() => {
     fetchProducts();
   }, [page, search, category, brand, minPrice, maxPrice, sort, order, ]);
@@ -52,21 +53,26 @@ function Product() {
     }
 };
 
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="px-">
 
 
       <div className="">
         {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
-        <Navbar setSearch={setSearch}></Navbar>
+        <Navbar setSearch={setSearch} ></Navbar>
         </div>
        
-        <div className="h-44"></div>
+        <div className="h-32"></div>
+    
 
       {/*main section  */}
- <section className="max-w-[1280px] mx-auto ">
+ <section className="max-w-[1280px] mx-auto px-2">
          
- <div className="lg:hidden">
+ <div className="lg:hidden md:hidden mb-5">
  <FilterOptions 
         setSearch={setSearch}
         setCategory={setCategory}
@@ -76,27 +82,37 @@ function Product() {
         setSort={setSort}
         setOrder={setOrder}
       />
+      <hr />
  </div>
 
 
 <section className=" container flex gap-2">
 
     {/* sidbar */}
-    <div className="w-52">
+    <div className="w-52 hidden md:block lg:block">
     {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
     <FilterCategory setCategory={setCategory}></FilterCategory>
     {category=== "Smartphones" && <FilterBrand brand={products} setBrand={setBrand}></FilterBrand>}
     <FilterPrice setMinPrice={setMinPrice} setMaxPrice={setMaxPrice}></FilterPrice>
     <SortRatingDate setSort={setSort}></SortRatingDate>
+    <button
+        onClick={reloadPage} 
+        className=" rounded-md mt-5 text-red-500 hover:text-red-700 underline"
+      >
+        Clear search
+      </button>
     </div>
 
 
       <div className="w-full">
-        <div className=" h-20 flex justify-end border-b mb-2">
+      <div className="hidden md:block lg:block">
+      <div className=" h-20 flex justify-end border-b mb-2 ">
+        
         <PriceSrot setOrder={setOrder}></PriceSrot>
         </div>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

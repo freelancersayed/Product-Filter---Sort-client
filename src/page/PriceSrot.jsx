@@ -8,7 +8,7 @@ const PriceSrot = ({setOrder}) => {
           className="rounded px-2 h-10 border border-gray-300 outline-0 w-36 "
           onChange={(e) => setOrder(e.target.value)}
         >
-       <span>Best Match</span>
+       <option>Best Match</option>
           <option className="" value="asc">Price low to high</option>
           <option className="" value="desc">Price high to low</option>
         </select>

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.search:hover img{
+    display: block;
+}
+.search:hover .icon{
+    display: none;
+}
+.search img{
+    display: none;
+}
