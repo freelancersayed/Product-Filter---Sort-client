@@ -2,9 +2,9 @@ import React from "react";
 
 function Pagination({ page, setPage, totalPages }) {
   return (
-    <div className="flex justify-center mt-8">
+    <div className="flex justify-center my-8">
       <button 
-        className="btn btn-secondary mr-4" 
+        className="btn btn-sm btn-secondary mr-4" 
         onClick={() => setPage(page - 1)} 
         disabled={page === 1}
       >
@@ -12,7 +12,7 @@ function Pagination({ page, setPage, totalPages }) {
       </button>
       <span className="text-lg font-bold">{page} of {totalPages}</span>
       <button 
-        className="btn btn-secondary ml-4" 
+        className="btn btn-sm btn-secondary ml-4" 
         onClick={() => setPage(page + 1)} 
         disabled={page === totalPages}
       >

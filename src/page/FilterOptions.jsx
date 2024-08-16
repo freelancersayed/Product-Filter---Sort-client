@@ -52,6 +52,7 @@ function FilterOptions({ setSearch, setCategory, setBrand, setMinPrice, setMaxPr
         >
           <option value="rating">Rating</option>
           <option value="price">Price</option>
+          <option value="">Hight</option>
           <option value="date_time">Date</option>
         </select>
         
@@ -59,8 +60,9 @@ function FilterOptions({ setSearch, setCategory, setBrand, setMinPrice, setMaxPr
           className="select select-bordered w-full"
           onChange={(e) => setOrder(e.target.value)}
         >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
+          <option className="disabled">Best Match</option>
+          <option className="" value="asc">Price low to high</option>
+          <option className="" value="desc">Price high to low</option>
         </select>
       </div>
     </div>

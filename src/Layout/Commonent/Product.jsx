@@ -8,6 +8,9 @@ import FilterBrand from "../../page/FilterBrand";
 import FilterSearch from "../../page/FilterSearch";
 import FilterPrice from "../../page/FilterPrice";
 import PriceSrot from "../../page/PriceSrot";
+import SortRatingDate from "../../page/SortRatingDate";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 function Product() {
@@ -52,12 +55,14 @@ function Product() {
   return (
     <div className="px-">
 
-      {/* <h1 className="text-3xl font-bold text-center mb-8">Product Catalog</h1> */}
 
-      <div className="w-full mx-auto mb-10 bg-[#f77912] py-6 fixed">
-        <FilterSearch setSearch={setSearch}></FilterSearch>
+      <div className="">
+        {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
+        <Navbar setSearch={setSearch}></Navbar>
         </div>
+       
         <div className="h-44"></div>
+
       {/*main section  */}
  <section className="max-w-[1280px] mx-auto ">
          
@@ -72,21 +77,23 @@ function Product() {
         setOrder={setOrder}
       />
  </div>
-    
+
+
 <section className=" container flex gap-2">
 
     {/* sidbar */}
     <div className="w-52">
     {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
     <FilterCategory setCategory={setCategory}></FilterCategory>
-    {category=== "Smartphones" && <FilterBrand setBrand={setBrand}></FilterBrand>}
+    {category=== "Smartphones" && <FilterBrand brand={products} setBrand={setBrand}></FilterBrand>}
     <FilterPrice setMinPrice={setMinPrice} setMaxPrice={setMaxPrice}></FilterPrice>
+    <SortRatingDate setSort={setSort}></SortRatingDate>
     </div>
 
 
       <div className="w-full">
         <div className=" h-20 flex justify-end border-b mb-2">
-        <PriceSrot setSort={setSort}></PriceSrot>
+        <PriceSrot setOrder={setOrder}></PriceSrot>
         </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">

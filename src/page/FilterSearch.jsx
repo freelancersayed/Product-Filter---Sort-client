@@ -6,7 +6,7 @@ const FilterSearch = ({setSearch}) => {
                 <input 
           type="text" 
           placeholder="Search products..." 
-          className=" outline-0 border py-4 rounded-lg px-4 w-full"
+          className=" outline-0 border py-3 rounded px-4 w-full"
           onChange={(e) => setSearch(e.target.value)} 
         />
         </div>

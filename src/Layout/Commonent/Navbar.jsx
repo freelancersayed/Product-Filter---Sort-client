@@ -1,9 +1,10 @@
 import React from 'react';
+import FilterSearch from '../../page/FilterSearch';
 
-const Navbar = () => {
+const Navbar = ({setSearch}) => {
     return (
-        <div className='py-6 bg-gray-300 text-center text-black'>
-            <h1>NavBar</h1>
+        <div className='py-4 bg-orange-500 text-center text-black'>
+        <FilterSearch setSearch={setSearch}></FilterSearch>
         </div>
     );
 };

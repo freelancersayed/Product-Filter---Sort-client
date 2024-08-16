@@ -10,7 +10,7 @@ const FilterPrice = ({setMinPrice, setMaxPrice}) => {
             className=" rounded px-2 h-8 border border-red-100 outline-0 w-full"
             onChange={(e) => setMinPrice(e.target.value)} 
           />
-          -
+          <span>-</span>
           <input 
             type="number" 
             placeholder="Max" 
