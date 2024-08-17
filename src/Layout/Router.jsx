@@ -4,6 +4,7 @@ import Product from "./Commonent/Product";
 import ProductDetails from "./Commonent/ProductDetails";
 import Register from "./Commonent/Register";
 import Login from "./Commonent/Login";
+import Payment from "./Commonent/Payment";
 
 
 
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             path: '/login',
             element: <Login></Login>,
         },
+        {
+            path: "/payment",
+            element: <Payment></Payment>
+        }
 
     ]
 },
