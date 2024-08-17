@@ -60,7 +60,6 @@ const from = location.state?.from?.pathname || "/";
 
    <section className='max-w-[800px] mx-auto text-gray-700'>
   <div className='flex justify-between '>
-  {/* <h1 className='text-3xl'>Create Your Product-Nest Account</h1> */}
   <p>Already Account? <Link to="/register" className='text-blue-500 underline cursor-pointer'>Register</Link> here</p>
   </div>
 <div className="mt-10 justify-center py-10 gap-10 lg:px-28 md:px-20 px-6  shadow-md rounded-sm bg-white">

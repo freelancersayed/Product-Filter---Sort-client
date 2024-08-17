@@ -67,7 +67,6 @@ function Product() {
       </Helmet>
 
       <div className="">
-        {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
         <Navbar setSearch={setSearch} ></Navbar>
         </div>
        

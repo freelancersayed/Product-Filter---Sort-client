@@ -6,7 +6,7 @@ import Payment from './Payment';
 import { Helmet } from 'react-helmet';
 
 const ProductDetails = () => {
-//   const [product, setProduct] = useState(null);
+
 const [isModalOpen, setIsModalOpen] = useState(false);
 
   const details = useLoaderData([]);
