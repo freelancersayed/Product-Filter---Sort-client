@@ -5,6 +5,7 @@ import ProductDetails from "./Commonent/ProductDetails";
 import Register from "./Commonent/Register";
 import Login from "./Commonent/Login";
 import Payment from "./Commonent/Payment";
+import PrivetRout from "../firebase/provider/PrivetRout";
 
 
 
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "/details/:_id",
-            element: <ProductDetails></ProductDetails>,
+            element: <PrivetRout><ProductDetails></ProductDetails></PrivetRout>,
             loader: ()=>fetch('http://localhost:5000/product')
         },
         {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "/payment",
-            element: <Payment></Payment>
+            element: <PrivetRout><Payment></Payment></PrivetRout>,
         }
 
     ]

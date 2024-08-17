@@ -27,11 +27,11 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         <Navbar></Navbar>
         <div className="h-32"></div>
     <section className="min-h-screen">
-    <div className="flex gap-10 max-w-4xl mx-auto my-10 p-6 bg-white shadow-md rounded-lg">
-        <img src={product?.image} alt={product?.name} className="w-1/2 rounded-lg" />
+    <div className="lg:flex md:flex gap-10 max-w-4xl mx-auto my-10 p-6 bg-white shadow-md rounded-lg">
+        <img src={product?.image} alt={product?.name} className="lg:w-1/2 md:w-1/2 w-5/6 mx-auto rounded-lg" />
         <div className="flex flex-col justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-4">{product?.name}</h1>
+            <h1 className="text-3xl lg:text-left text-center font-bold mb-4">{product?.name}</h1>
             <p className="text-gray-700 mb-2"><strong>Brand:</strong> {product?.brand}</p>
             <p className="text-gray-700 mb-2"><strong>Category:</strong> {product?.category}</p>
             <p className="text-gray-700 mb-4"><strong>Price:</strong> {product?.price} BDT</p>

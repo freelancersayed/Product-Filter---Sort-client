@@ -3,16 +3,17 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AuthContext } from '../../firebase/provider/Authprovider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
  // Assuming firebase.js is already set up
 
 const Register = () => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   const {createUser, updateUserProfile, googleLogin,} = useContext(AuthContext)
-
+  const naviget= useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-const naviget= useNavigate();
+
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);

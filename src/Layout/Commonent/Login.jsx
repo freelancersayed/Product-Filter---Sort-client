@@ -1,20 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { getAuth, } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AuthContext } from '../../firebase/provider/Authprovider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { app } from '../../firebase/firebase.config';
  // Assuming firebase.js is already set up
 
 const Login = () => {
 
   const auth = getAuth(app);
-
-  const {signIn, googleLogin} = useContext(AuthContext)
-
-  const from = location.state?.from?.pathname || "/";
-const naviget= useNavigate();
+const {signIn, googleLogin} = useContext(AuthContext)
+const navigate= useNavigate();
+const location = useLocation();
+const from = location.state?.from?.pathname || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,7 +30,7 @@ const naviget= useNavigate();
     .then((result)=>{
       console.log(result.user);
  
-      naviget('/')
+      navigate(from, { replace: true });
     })
     .catch((error)=>{
       console.log(error);
@@ -43,7 +41,8 @@ const naviget= useNavigate();
   const handleGoogleLogin = async () => {
     googleLogin()
     .then(() => {
-      naviget(from, { replace: true });
+      navigate(from, { replace: true });
+      
     })
     .catch(error => {
       console.log(error);
