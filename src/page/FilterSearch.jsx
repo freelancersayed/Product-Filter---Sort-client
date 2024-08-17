@@ -8,11 +8,11 @@ const FilterSearch = ({setSearch, search}) => {
                 <input 
           type="text" 
           placeholder="Search products..." 
-          className=" outline-0 border py-3 rounded px-4 w-full"
+          className=" outline-0 border lg:py-3 md:py-3 py-2 rounded-sm px-4 w-full"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <IoIosSearch className='w-12 h-12 relative -ml-16 icon' />
-    <img className='w-10 h-10 relative -ml-12 ' src="/search.gif" alt="" /> 
+        <IoIosSearch className='lg:w-12 md:w-12 w-10 h-12 relative -ml-12 icon' />
+    <img className='lg:w-10 md:w-10 w-8 lg:h-10 md:h-10 h-8 relative -ml-12 ' src="/search.gif" alt="" /> 
         </div>
     );
 };

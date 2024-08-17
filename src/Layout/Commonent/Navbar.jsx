@@ -18,8 +18,14 @@ const Navbar = ({setSearch}) => {
     }
 
     return (
-        <div className='flex lg:py-4 pt-6 pb-4 bg-orange-500 text-center text-black fixed w-full'>
-       <div className='w-full'>
+        <div className='lg:py-4 pt-6 pb-4 bg-orange-500 text-center text-black fixed w-full px-2'>
+   <section className='flex max-w-[1280px] mx-auto items-center'>
+   <div className='flex items-center'>
+      {/* <h1 className='text-white font-bold'>FAST</h1> */}
+      {/* <img className='lg:w-28 md:w-28 w-20 hidden lg:block md:block' src="/find.webp" alt="" /> */}
+        <img className='lg:w-52 md:28 w-36 lg:h-12 h-10 md:h-full  ' src="/product.png" alt="" />
+       </div>
+       <div className='lg:w-full md:w-3/4 w-full'>
        <FilterSearch setSearch={setSearch}></FilterSearch>
        </div>
 
@@ -28,12 +34,13 @@ const Navbar = ({setSearch}) => {
         <Link to="/login">LOGIN</Link>
         <Link to="/register">SING UP</Link>
     </div>:
-    <div className='flex items-center w-52 gap-7 text-white'>
-    <p className=' font-bold'>{user?.displayName}</p>
+    <div className='flex items-center lg:w-60 gap-7 text-white'>
+    <p className=' font-bold hidden lg:block'>{user?.displayName}</p>
     <button className='hover:underline' onClick={handleLogout}>LogOut</button>
     </div>
      }
 
+   </section>
     
         </div>
     );
