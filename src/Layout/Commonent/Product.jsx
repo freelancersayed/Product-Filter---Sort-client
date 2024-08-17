@@ -12,6 +12,7 @@ import SortRatingDate from "../../page/SortRatingDate";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import { Helmet } from "react-helmet";
+import TimeOut from "../../page/TimeOut";
 
 
 function Product() {
@@ -96,8 +97,8 @@ function Product() {
     <div className="w-52 hidden md:block lg:block">
     {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}
     <FilterCategory setCategory={setCategory}></FilterCategory>
-    {category=== "Smartphones" && <FilterBrand brand={products} setBrand={setBrand}></FilterBrand>}
-    <FilterPrice setMinPrice={setMinPrice} setMaxPrice={setMaxPrice}></FilterPrice>
+    <FilterBrand brand={category} setBrand={setBrand}></FilterBrand>
+    <FilterPrice setMinPrice={setMinPrice} product={products} setMaxPrice={setMaxPrice}></FilterPrice>
     <SortRatingDate setSort={setSort}></SortRatingDate>
     <button
         onClick={reloadPage} 
@@ -117,9 +118,12 @@ function Product() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {products.map((product) => (
+        { products.map((product) => (
           <ProductCard key={product._id} product={product} />
-        ))}
+        )) 
+
+        }
+        <div className="col-span-4"><TimeOut data={products}></TimeOut></div>
       </div>
       
       <Pagination 
