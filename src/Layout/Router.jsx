@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         {
             path: "/details/:_id",
             element: <PrivetRout><ProductDetails></ProductDetails></PrivetRout>,
-            loader: ()=>fetch('http://localhost:5000/product')
+            loader: ()=>fetch('https://server-side-nine-inky.vercel.app/product')
         },
         {
             path: '/register',

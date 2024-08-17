@@ -21,10 +21,11 @@ const Navbar = ({setSearch}) => {
         <div className='lg:py-4 pt-6 pb-4 bg-orange-500 text-center text-black fixed w-full px-2'>
    <section className='flex max-w-[1280px] mx-auto items-center'>
    <div className='flex items-center'>
-      {/* <h1 className='text-white font-bold'>FAST</h1> */}
-      {/* <img className='lg:w-28 md:w-28 w-20 hidden lg:block md:block' src="/find.webp" alt="" /> */}
-        <img className='lg:w-52 md:28 w-36 lg:h-12 h-10 md:h-full  ' src="/product.png" alt="" />
+       <Link to="/">
+       <img className='lg:w-52 md:28 w-36 lg:h-12 h-10 md:h-full  ' src="/product.png" alt="" />
+       </Link>
        </div>
+
        <div className='lg:w-full md:w-3/4 w-full'>
        <FilterSearch setSearch={setSearch}></FilterSearch>
        </div>

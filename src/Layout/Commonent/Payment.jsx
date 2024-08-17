@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-const Payment = ({ isOpen, onClose, title, children }) => {
+const Payment = ({ isOpen, onClose, product, title, children }) => {
 
   if (!isOpen) return null;
     return (
         <div className="lg:max-w-[700px] md:w-[700px] w-[400px] mx-auto max-h-[500px]  lg:mt-52 mt-36 bg-white shadow-md rounded-sm flex flex-col items-center justify-center fixed inset-0  bg-opacity-100  z-50 border ">
+
+<Helmet>
+        <title>Payment {product?.name} Page - Product-Nest Site</title>
+        <meta name="description" content="This is the home page of product nest site." />
+        <meta name="keywords" content="react, helmet, SEO, register" />
+      </Helmet>
 
 <div className='w-full flex justify-end -mt-32 px-4'>
 <button 

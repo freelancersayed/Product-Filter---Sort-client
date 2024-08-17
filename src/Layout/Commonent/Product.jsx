@@ -11,6 +11,7 @@ import PriceSrot from "../../page/PriceSrot";
 import SortRatingDate from "../../page/SortRatingDate";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import { Helmet } from "react-helmet";
 
 
 function Product() {
@@ -32,7 +33,7 @@ function Product() {
 
   const fetchProducts = async () => {
     try {
-        const response = await axios.get("http://localhost:5000/products", {
+        const response = await axios.get("https://server-side-nine-inky.vercel.app/products", {
             params: {
                 page,
                 search,
@@ -59,7 +60,11 @@ function Product() {
 
   return (
     <div className="px-">
-
+ <Helmet>
+        <title>Home - Product-Nest Site</title>
+        <meta name="description" content="This is the home page of my product nest site." />
+        <meta name="keywords" content="react, helmet, SEO, homepage" />
+      </Helmet>
 
       <div className="">
         {/* <FilterSearch setSearch={setSearch}></FilterSearch> */}

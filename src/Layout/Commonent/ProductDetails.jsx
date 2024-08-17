@@ -3,6 +3,7 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Payment from './Payment';
+import { Helmet } from 'react-helmet';
 
 const ProductDetails = () => {
 //   const [product, setProduct] = useState(null);
@@ -24,6 +25,11 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div>
+       <Helmet>
+        <title>{product?.name} - Product-Nest</title>
+        <meta name="description" content="This is the product details page of my product nest site." />
+        <meta name="keywords" content="react, helmet, SEO, details" />
+      </Helmet>
         <Navbar></Navbar>
         <div className="h-32"></div>
     <section className="min-h-screen">
@@ -50,7 +56,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         </div>
       </div>
     </section>
-    <Payment isOpen={isModalOpen} onClose={closeModal} title="Modal Title"></Payment>
+    <Payment isOpen={isModalOpen} onClose={closeModal} product={product} title="Modal Title"></Payment>
     </div>
   );
 };

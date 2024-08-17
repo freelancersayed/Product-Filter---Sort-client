@@ -4,6 +4,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AuthContext } from '../../firebase/provider/Authprovider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
  // Assuming firebase.js is already set up
 
 const Register = () => {
@@ -59,13 +60,17 @@ const Register = () => {
 
   return (
    <div className=' m-2 py-20 bg-gray-100'>
-    
+     <Helmet>
+        <title>Register Page - Product-Nest Site</title>
+        <meta name="description" content="This is the register page of product nest site." />
+        <meta name="keywords" content="react, helmet, SEO, register" />
+      </Helmet>
    <section className='max-w-[800px] mx-auto'>
-  <div className='flex justify-between'>
+  <div className='lg:flex justify-between'>
   <h1 className='text-3xl'>Create Your Product-Nest Account</h1>
   <p>Already Account? <Link to="/login" className='text-blue-500 underline cursor-pointer'>Login</Link> here</p>
   </div>
-<div className="flex mt-10 justify-center p-8 py-10 gap-10  shadow-md rounded-sm bg-white">
+<div className="flex lg:flex-row flex-col-reverse mt-10 justify-center p-8 py-10 gap-10  shadow-md rounded-sm bg-white">
 <div className="w-full flex items-end">
      <button
        onClick={handleGoogleSign}
